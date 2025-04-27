@@ -36,7 +36,7 @@ export default function HomePage() {
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              NeonMedia
+              MediaCorn
             </motion.h1>
 
             {/* Desktop Navigation */}
