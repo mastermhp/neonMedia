@@ -31,7 +31,7 @@ export default function MediaCard({ item, index }) {
           {/* Placeholder while image loads */}
           {!isImageLoaded && <div className="absolute inset-0 bg-gray-800 animate-pulse" />}
 
-          <Image
+          <img
             src={item.imageUrl || "/placeholder.svg?height=720&width=1280&text=Media"}
             alt={item.title}
             fill
