@@ -32,7 +32,7 @@ export default function MediaCard({ item, index }) {
           {!isImageLoaded && <div className="absolute inset-0 bg-gray-800 animate-pulse" />}
 
           <img
-            src={item.imageUrl || "/placeholder.svg?height=720&width=1280&text=Media"}
+            src={item.imageUrl}
             alt={item.title}
             fill
             className={`object-cover transition-transform duration-700 ease-in-out group-hover:scale-110 ${
