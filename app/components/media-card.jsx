@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion } from "framer-motion"
-import { Play } from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Play } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function MediaCard({ item, index }) {
-  const [isHovered, setIsHovered] = useState(false)
-  const [isImageLoaded, setIsImageLoaded] = useState(false)
+  const [isHovered, setIsHovered] = useState(false);
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
 
   return (
     <motion.div
@@ -29,18 +29,19 @@ export default function MediaCard({ item, index }) {
           transition={{ type: "spring", stiffness: 300 }}
         >
           {/* Placeholder while image loads */}
-          {!isImageLoaded && <div className="absolute inset-0 bg-gray-800 animate-pulse" />}
+          {!isImageLoaded && (
+            <div className="absolute inset-0 bg-gray-800 animate-pulse" />
+          )}
 
           <img
             src={item.imageUrl}
             alt={item.title}
-            fill
             className={`object-cover transition-transform duration-700 ease-in-out group-hover:scale-110 ${
               isImageLoaded ? "opacity-100" : "opacity-0"
             }`}
             sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
             onLoad={() => setIsImageLoaded(true)}
-            priority={index < 4} // Load first 4 images with priority
+            // priority={index < 4}
           />
 
           {/* Overlay gradient */}
@@ -77,11 +78,15 @@ export default function MediaCard({ item, index }) {
 
           {/* Title */}
           <div className="absolute bottom-0 left-0 right-0 p-2 md:p-3">
-            <h3 className="text-xs md:text-sm font-medium text-white truncate">{item.title}</h3>
-            <p className="text-xs text-gray-300 mt-0.5 md:mt-1 opacity-80">{item.views} views</p>
+            {/* <h3 className="text-xs md:text-sm font-medium text-white truncate">
+              {item.title}
+            </h3> */}
+            <p className="text-xs text-gray-300 mt-0.5 md:mt-1 opacity-80">
+              {item.views} views
+            </p>
           </div>
         </motion.div>
       </Link>
     </motion.div>
-  )
+  );
 }
